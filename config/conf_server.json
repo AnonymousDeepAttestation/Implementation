@@ -1,0 +1,12 @@
+{
+    "host" : "192.168.100.100",
+    "port" : 4433,
+    "server_cert" : "Server_Cert/server.crt",
+    "server_key" : "Server_Cert/server.key",
+    "tpm_ca" : "TPM_CA/rootCA.pem",
+    "normal_pcr_hyp" : "Normal_PCR/pcr_hyp.data",
+    "pcr_list_hyp" : [14,15,16],
+    "normal_pcr_vm" : "Normal_PCR/pcr_vm.data",
+    "pcr_list_vm" : [14,15,16],
+    "working_dir" : "Temp/"
+}

@@ -1,0 +1,7 @@
+{
+    "host" : "server",
+    "port" : 4433,
+    "server_ca" : "Server_Cert/server.crt",
+    "aik_password" : "",
+    "working_dir" : "Temp/"
+}

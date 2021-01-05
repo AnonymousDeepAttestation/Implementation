@@ -1,0 +1,8 @@
+{
+    "host" : "server",
+    "port" : 4433,
+    "server_ca" : "Server_Cert/server.crt",
+    "vTPM_folder_path" : "vTPM/",
+    "aik_password" : "",
+    "working_dir" : "Temp/"
+}
