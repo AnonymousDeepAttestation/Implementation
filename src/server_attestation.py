@@ -174,8 +174,6 @@ def attestation_response(is_hypervisor, aik_name, quote, signature, pcr, credent
             "type_message": "Error",
             "error_message": "Wrong Credential"
         }
-    print("Quote : ", targets[aik_name]["quote_nonce"].hex())
-    print("vTPMs : ", list_VM)
     if is_hypervisor:
     	nonce = targets[aik_name]["quote_nonce"].hex() + ''.join(list_VM)
     	nonce = hashlib.sha256(nonce.encode('utf-8')).hexdigest()
