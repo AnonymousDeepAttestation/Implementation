@@ -12,6 +12,7 @@ It used RSA, RSASSA and SHA-256 for signing.
 import os
 import re
 import sys
+import time
 import shutil
 import inspect
 import subprocess
@@ -40,7 +41,9 @@ def tpm_cmd(command, no_tcti=False):
             command_array.append("--tcti=mssim")
             command_array.append("-T")
             command_array.append("mssim:host=" + emulator_host + ",port=" + emulator_port)
+        start = time.perf_counter()
         result = subprocess.run(command_array, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)# ,env=environment)
+        print("time :", time.perf_counter() - start, "s")
         result.check_returncode()
         return result.stdout.decode('utf-8')
     except subprocess.CalledProcessError as command_err:

@@ -6,6 +6,7 @@ This server is able to handle multiple connection, each connection is processed 
 """
 
 import ssl
+import time
 import json
 import errno
 import utils
@@ -42,6 +43,7 @@ server_attestation.set_server_attestation_param(tpm_ca, normal_pcr_hyp, pcr_list
 # --------------------------------------- SSL ---------------------------------------
 
 def connection_thread(conn, addr):
+    start = time.perf_counter()
     while True:
         try:
             data = conn.recv(4096)
@@ -71,6 +73,7 @@ def connection_thread(conn, addr):
             if e.errno != errno.ECONNRESET:
                 raise 
             print("Connection reset by", addr)
+    print("Attestation request time :", time.perf_counter() - start, "s")
     conn.close()
 
 context = ssl.SSLContext()
