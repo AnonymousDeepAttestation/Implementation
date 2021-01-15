@@ -1,0 +1,2 @@
+cd ~/Documents
+python3 run_test.py
