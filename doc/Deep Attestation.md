@@ -10,7 +10,7 @@ This document describes how to deploy and set up an architecture to run the demo
 
 The architecture we are going to describe is presented in the  picture below . The PC is used as the hypervisor using KVM and we run 2 QEMU Virtual machines over it. A third virtual machine played the role of the attestation server. The computer must be equipped with a TPM 2.0 (here an OPTIGA TPM by Infineon). To provide a TPM to the VM we are using a QEMU module by IBM. The communication with both the virtual TPM and hardware TPM is made with tools following the TCG TSS2 specifications. The attestation server also uses the tools as they provide functions to ease the attestation even if it does not have  a TPM.
 
-![](https://i.imgur.com/PItuyy2.png)
+![](https://i.imgur.com/DgJtCUw.png)
 
 ## Installation
 

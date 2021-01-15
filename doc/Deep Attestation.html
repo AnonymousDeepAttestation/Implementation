@@ -34,7 +34,7 @@
 </head>
 
 <body>
-    <div id="doc" class="markdown-body container-fluid comment-enabled" data-hard-breaks="true"><h2 id="Introduction" data-id="Introduction"><a class="anchor hidden-xs" href="#Introduction" title="Introduction"><span class="octicon octicon-link"></span></a><span>Introduction</span></h2><p><span>This document describes how to deploy and set up an architecture to run the demonstration of our Deep Attestation protocol. It can be runned on a single device provided that it is embedded with a TPM 2.0 and has virtualization capacities. All the instructions have been tested on Ubuntu Desktop 20.04.1.</span></p><h4 id="Architecture" data-id="Architecture"><a class="anchor hidden-xs" href="#Architecture" title="Architecture"><span class="octicon octicon-link"></span></a><span>Architecture</span></h4><p><span>The architecture we are going to describe is presented in the  picture below . The PC is used as the hypervisor using KVM and we run 2 QEMU Virtual machines over it. A third virtual machine played the role of the attestation server. The computer must be equipped with a TPM 2.0 (here an OPTIGA TPM by Infineon). To provide a TPM to the VM we are using a QEMU module by IBM. The communication with both the virtual TPM and hardware TPM is made with tools following the TCG TSS2 specifications. The attestation server also uses the tools as they provide functions to ease the attestation even if it does not have  a TPM.</span></p><p><img src="https://i.imgur.com/PItuyy2.png" alt=""></p><h2 id="Installation" data-id="Installation"><a class="anchor hidden-xs" href="#Installation" title="Installation"><span class="octicon octicon-link"></span></a><span>Installation</span></h2><h4 id="Hypervisor" data-id="Hypervisor"><a class="anchor hidden-xs" href="#Hypervisor" title="Hypervisor"><span class="octicon octicon-link"></span></a><span>Hypervisor</span></h4><h6 id="KVMQEMU-" data-id="KVMQEMU-"><a class="anchor hidden-xs" href="#KVMQEMU-" title="KVMQEMU-"><span class="octicon octicon-link"></span></a><span>KVM/QEMU :</span></h6><p><span>First we need to install QEMU and KVM. You can use these commands on Ubuntu :</span></p><pre><code class="bash hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
+    <div id="doc" class="markdown-body container-fluid comment-enabled" data-hard-breaks="true"><h2 id="Introduction" data-id="Introduction"><a class="anchor hidden-xs" href="#Introduction" title="Introduction"><span class="octicon octicon-link"></span></a><span>Introduction</span></h2><p><span>This document describes how to deploy and set up an architecture to run the demonstration of our Deep Attestation protocol. It can be runned on a single device provided that it is embedded with a TPM 2.0 and has virtualization capacities. All the instructions have been tested on Ubuntu Desktop 20.04.1.</span></p><h4 id="Architecture" data-id="Architecture"><a class="anchor hidden-xs" href="#Architecture" title="Architecture"><span class="octicon octicon-link"></span></a><span>Architecture</span></h4><p><span>The architecture we are going to describe is presented in the  picture below . The PC is used as the hypervisor using KVM and we run 2 QEMU Virtual machines over it. A third virtual machine played the role of the attestation server. The computer must be equipped with a TPM 2.0 (here an OPTIGA TPM by Infineon). To provide a TPM to the VM we are using a QEMU module by IBM. The communication with both the virtual TPM and hardware TPM is made with tools following the TCG TSS2 specifications. The attestation server also uses the tools as they provide functions to ease the attestation even if it does not have  a TPM.</span></p><p><img src="https://i.imgur.com/DgJtCUw.png" alt=""></p><h2 id="Installation" data-id="Installation"><a class="anchor hidden-xs" href="#Installation" title="Installation"><span class="octicon octicon-link"></span></a><span>Installation</span></h2><h4 id="Hypervisor" data-id="Hypervisor"><a class="anchor hidden-xs" href="#Hypervisor" title="Hypervisor"><span class="octicon octicon-link"></span></a><span>Hypervisor</span></h4><h6 id="KVMQEMU-" data-id="KVMQEMU-"><a class="anchor hidden-xs" href="#KVMQEMU-" title="KVMQEMU-"><span class="octicon octicon-link"></span></a><span>KVM/QEMU :</span></h6><p><span>First we need to install QEMU and KVM. You can use these commands on Ubuntu :</span></p><pre><code class="bash hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span>
 <span data-linenumber="2"></span></div><div class="code">sudo apt install qemu-kvm virt-manager
 sudo adduser `id -un` libvirt
 </div></div></code></pre><p><span>To connect to the VM we use spice client but you can also use OpenSSH :</span></p><pre><code class="bash hljs"><div class="wrapper"><div class="gutter linenumber"><span data-linenumber="1"></span></div><div class="code">sudo apt install spice-client-gtk
@@ -208,11 +208,11 @@ openssl x509 -inform der -<span class="hljs-keyword">in</span> rootCA.der -out r
             <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
                 <div class="toc"><ul class="nav">
 <li class=""><a href="#Introduction" title="Introduction">Introduction</a><ul class="nav">
-<li><a href="#Architecture" title="Architecture">Architecture</a></li>
+<li class=""><a href="#Architecture" title="Architecture">Architecture</a></li>
 </ul>
 </li>
-<li><a href="#Installation" title="Installation">Installation</a><ul class="nav">
-<li><a href="#Hypervisor" title="Hypervisor">Hypervisor</a></li>
+<li class=""><a href="#Installation" title="Installation">Installation</a><ul class="nav">
+<li class=""><a href="#Hypervisor" title="Hypervisor">Hypervisor</a></li>
 <li><a href="#Virtual-Machines" title="Virtual Machines">Virtual Machines</a></li>
 <li><a href="#Attestation-server" title="Attestation server">Attestation server</a></li>
 </ul>
@@ -240,11 +240,11 @@ openssl x509 -inform der -<span class="hljs-keyword">in</span> rootCA.der -out r
     <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;" null null>
         <div class="toc"><ul class="nav">
 <li class=""><a href="#Introduction" title="Introduction">Introduction</a><ul class="nav">
-<li><a href="#Architecture" title="Architecture">Architecture</a></li>
+<li class=""><a href="#Architecture" title="Architecture">Architecture</a></li>
 </ul>
 </li>
-<li><a href="#Installation" title="Installation">Installation</a><ul class="nav">
-<li><a href="#Hypervisor" title="Hypervisor">Hypervisor</a></li>
+<li class=""><a href="#Installation" title="Installation">Installation</a><ul class="nav">
+<li class=""><a href="#Hypervisor" title="Hypervisor">Hypervisor</a></li>
 <li><a href="#Virtual-Machines" title="Virtual Machines">Virtual Machines</a></li>
 <li><a href="#Attestation-server" title="Attestation server">Attestation server</a></li>
 </ul>
