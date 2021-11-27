@@ -1,4 +1,4 @@
-# deep-attestation
+# Deep Attestation Implementation
 
 This project corresponds to a proof of concept for a Deep Attestation protocol using multichannel approach with a new linked-attestation mechanism in order to get the good performance of the multichannel approach with improved security.
 
